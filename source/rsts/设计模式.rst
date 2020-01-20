@@ -4,7 +4,6 @@
 
 
 .. toctree::
-   :numbered:
 
    ../Note/设计模式/uml.md
    ../Note/设计模式/单例模式.md

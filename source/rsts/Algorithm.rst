@@ -4,7 +4,6 @@
 
 .. toctree::
    :maxdepth: 2
-   :numbered:
 
    ../Note/Algorithm/链表.md
    ../Note/Algorithm/Tree.md

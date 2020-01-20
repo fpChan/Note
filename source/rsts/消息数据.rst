@@ -9,6 +9,7 @@ Mysql
 
    ../Note/消息数据/mysql/index.md
    ../Note/消息数据/mysql/gorm.md
+   ../Note/消息数据/mysql/主从复制.md
 
 
 Redis

@@ -8,8 +8,8 @@ Docker
    :numbered:
 
    ../Note/docker/docker.md
-   ../Note/docker/docker-compose.md
    ../Note/docker/dockerfile.md
+   ../Note/docker/docker-compose.md
 
 Apllo
 =======
@@ -24,6 +24,7 @@ Eureka
    :numbered:
 
    ../Note/工程维护/Eureka/eureka.md
+   ../Note/工程维护/Eureka/Eureka服务提供与调用.md
 
 
 Log
