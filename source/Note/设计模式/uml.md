@@ -41,8 +41,6 @@ Class11  *--   Class12  : 组合
 
 ![](../image/design_pattern/class-relation.png)
 
-![](../image/design_pattern/uml.png)
-
 
 
 

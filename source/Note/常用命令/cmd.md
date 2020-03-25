@@ -11,13 +11,19 @@ ps aux | grep start
 # 查看端口占用
 lsof -i:端口号
 
+#列出所有这个进程关联的文件句柄
+lsof -p $pid 
+
+
 # 杀死进程
 kill -9 ppid
 
 # 进程监控工具
 top 
+
+
 ```
- 
+
 
  ### 文件常用命令  
  ```shell
