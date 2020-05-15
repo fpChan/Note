@@ -42,6 +42,11 @@ chown - R $USER /tmp/
 
 # 查看系统用户：
 cat /etc/passwd
+
+#  文件比较异常
+cat orgin_text_file1 | sort > file1.out 
+cat orgin_text_file2 | sort > file2.out
+vimdiff file2.out file2.out
  ```
 
 
