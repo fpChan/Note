@@ -42,3 +42,12 @@ Cosmos
    :numbered:
 
    ../Note/BlockChain/cosmos/tendermint.md
+
+
+Rust
+=======
+.. toctree::
+   :numbered:
+
+   ../Note/BlockChain/rust/basic.md
+   ../Note/BlockChain/rust/ownership.md
