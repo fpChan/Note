@@ -5,6 +5,6 @@
 
 .. toctree::
 
-   ../Note/设计模式/uml.md
-   ../Note/设计模式/单例模式.md
-   ../Note/设计模式/桥接模式.md
+   ../note/设计模式/uml.md
+   ../note/设计模式/单例模式.md
+   ../note/设计模式/桥接模式.md

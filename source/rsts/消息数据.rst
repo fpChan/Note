@@ -7,9 +7,9 @@ Mysql
 .. toctree::
    :numbered:
 
-   ../Note/消息数据/mysql/index.md
-   ../Note/消息数据/mysql/gorm.md
-   ../Note/消息数据/mysql/主从复制.md
+   ../note/消息数据/mysql/index.md
+   ../note/消息数据/mysql/gorm.md
+   ../note/消息数据/mysql/主从复制.md
 
 
 Redis
@@ -17,11 +17,11 @@ Redis
 .. toctree::
    :numbered:
 
-   ../Note/消息数据/Redis/常用命令.md
-   ../Note/消息数据/Redis/Redis使用规范.md
-   ../Note/消息数据/Redis/redis 应用场景.md
-   ../Note/消息数据/Redis/redis-interview.md
-   ../Note/消息数据/Redis/redis实现分布式锁.md
+   ../note/消息数据/Redis/脚本命令.md
+   ../note/消息数据/Redis/Redis使用规范.md
+   ../note/消息数据/Redis/redis应用场景.md
+   ../note/消息数据/Redis/redis-interview.md
+   ../note/消息数据/Redis/redis实现分布式锁.md
 
 
 Pulsar
@@ -29,5 +29,5 @@ Pulsar
 .. toctree::
    :numbered:
 
-   ../Note/消息数据/pulsar/pulsar-go.md
+   ../note/消息数据/pulsar/pulsar-go.md
    

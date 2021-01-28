@@ -8,7 +8,7 @@
 
 **阶段2**: 将数据从内核拷贝到进程中 (Copying the data from the kernel to the process)
 
-![](../../image/CSNote/network-io.png)
+![](../../image/cs-note/network-io.png)
 
 **用户空间**  是常规进程所在区域。 JVM 就是常规进程，驻守于用户空间。用户空间是非特权区域：比如，在该区域执行的代码就不能直接访问硬件设备。
 
@@ -26,7 +26,7 @@
 
 - 第二步就是把数据从内核缓冲区复制到应用程序缓冲区。
 
-![](../../image/CSNote/block-io.png)
+![](../../image/cs-note/block-io.png)
 
 
 当用户进程调用了recvfrom这个系统调用，kernel就开始了IO的第一个阶段：准备数据。对于network io来说，很多时候数据在一开始还没有到达（比如，还没有收到一个完整的UDP包），这个时候kernel就要等待足够的数据到来。而在用户进程这边，整 个进程会被阻塞。当kernel一直等到数据准备好了，它就会将数据从kernel中拷贝到用户内存，然后kernel返回结果，用户进程才解除 block的状态，重新运行起来。
@@ -37,7 +37,7 @@
 
 linux下，可以通过设置socket使其变为non-blocking。当对一个non-blocking socket执行读操作时，流程是这个样子：
 
-![](../../image/CSNote/nonblock-io.png)
+![](../../image/cs-note/nonblock-io.png)
 
 从图中可以看出，当用户进程发出read操作时，如果kernel中的数据还没有准备好，那么它并不会block用户进程，而是立刻返回一个error。 从用户进程角度讲 ，它发起一个read操作后，并不需要等待，而是马上就得到了一个结果。用户进程判断结果是一个error时，它就知道数据还没有准备好，于是它可以再次 发送read操作。一旦kernel中的数据准备好了，并且又再次收到了用户进程的system call，那么它马上就将数据拷贝到了用户内存，然后返回。
 
@@ -51,7 +51,7 @@ IO复用同非阻塞IO本质一样，不过利用了新的select系统调用，�
 
 它的基本原理就是select /epoll这个function会不断的轮询所负责的所有socket，当某个socket有数据到达了，就通知用户进程。它的流程如图：
 
-![](../../image/CSNote/io-multi.png)
+![](../../image/cs-note/io-multi.png)
 
 当用户进程调用了`select`，那么整个进程会被block，而同时，kernel会“监视”所有select负责的socket，当任何一个 socket中的数据准备好了，select就会返回。这个时候用户进程再调用read操作，将数据从kernel拷贝到用户进程
 
@@ -65,13 +65,13 @@ IO复用同非阻塞IO本质一样，不过利用了新的select系统调用，�
 
 用的很少
 
-![](../../image/CSNote/sigio.png)
+![](../../image/cs-note/sigio.png)
 
 ### 5、异步I/O（POSIX的aio_系列函数）：asynchronous IO
 
 这类函数的工作机制是告知内核启动某个操作，并让内核在整个操作（包括将数据从内核拷贝到用户空间）完成后通知我们。如图：
 
-![](../../image/CSNote/async-io.png)
+![](../../image/cs-note/async-io.png)
 
 
 用户进程发起read操作之后，立刻就可以开始去做其它的事。而另一方面，从kernel的角度，当它受到一个asynchronous read之后，首先它会立刻返回，所以不会对用户进程产生任何block。然后，kernel会等待数据准备完成，然后将数据拷贝到用户内存，当这一切都 完成之后，kernel会给用户进程发送一个signal，告诉它read操作完成了。 在这整个过程中，进程完全没有被block。

@@ -6,4 +6,4 @@
 
 
 
-![](../../image/MPT2.png)
+![](../../image/mpt2.png)

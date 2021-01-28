@@ -105,7 +105,7 @@ message Foo {
 
 一个标量消息字段可以含有一个如下的类型——该表格展示了定义于.proto文件中的类型，以及与之对应的、在自动生成的访问类中定义的类型：
 
-| .proto Type | Notes                                                        | Java Type  | Python Type[2] | Go Type |
+| .proto Type | notes                                                        | Java Type  | Python Type[2] | Go Type |
 | :---------- | :----------------------------------------------------------- | :--------- | :------------- | :------ |
 | double      |                                                              | double     | float          | float64 |
 | float       |                                                              | float      | float          | float32 |

@@ -59,7 +59,7 @@ docker-compose -f localhost.yml start nginx
 
 
 
-#### 其余常用命令
+#### 其余脚本命令
 
 ```shell
 # 登录到nginx容器中

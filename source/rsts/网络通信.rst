@@ -8,9 +8,9 @@
 .. toctree::
    :numbered:
 
-   ../Note/网络通信/网络协议/七层架构.md
-   ../Note/网络通信/网络协议/HTTP.md
-   ../Note/网络通信/网络协议/websocket.md
+   ../note/网络通信/网络协议/七层架构.md
+   ../note/网络通信/网络协议/HTTP.md
+   ../note/网络通信/网络协议/websocket.md
 
 
 IO通信 
@@ -19,7 +19,7 @@ IO通信
    :maxdepth: 2
    :numbered:
 
-   ../Note/网络通信/IO通信/IO模型.md
+   ../note/网络通信/IO通信/IO模型.md
 
 
 通信框架 
@@ -28,7 +28,7 @@ IO通信
    :maxdepth: 2
    :numbered:
 
-   ../Note/网络通信/Netty/netty实现websocket.md
+   ../note/网络通信/Netty/netty实现websocket.md
 
 Nginx 
 =======
@@ -36,5 +36,5 @@ Nginx
    :maxdepth: 2
    :numbered:
 
-   ../Note/网络通信/nginx/Nginx.md
-   ../Note/网络通信/nginx/Nginx处理跨域.md
+   ../note/网络通信/nginx/Nginx.md
+   ../note/网络通信/nginx/Nginx处理跨域.md

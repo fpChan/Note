@@ -8,8 +8,8 @@ JVM
 .. toctree::
    :numbered:
 
-   ../Note/java/JVM/类加载.md
-   ../Note/java/JVM/运行机制.md
+   ../note/java/JVM/类加载.md
+   ../note/java/JVM/运行机制.md
 
 
 Spring 
@@ -17,8 +17,8 @@ Spring
 .. toctree::
    :numbered:
 
-   ../Note/java/Spring/Spring代码结构.md
-   ../Note/java/Spring/注解.md
+   ../note/java/Spring/Spring代码结构.md
+   ../note/java/Spring/注解.md
    
 
 Mybatis 
@@ -26,6 +26,6 @@ Mybatis
 .. toctree::
    :numbered:
 
-   ../Note/java/Spring/mybatis工程.md
-   ../Note/java/Spring/mybatis深入.md
+   ../note/java/Spring/mybatis工程.md
+   ../note/java/Spring/mybatis深入.md
    

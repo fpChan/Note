@@ -7,13 +7,13 @@ Consensus
 .. toctree::
    :numbered:
 
-   ../Note/BlockChain/consensus/ACID 原则与多阶段提交.md
-   ../Note/BlockChain/consensus/FLP and CAP.md
-   ../Note/BlockChain/consensus/Paxos.md
-   ../Note/BlockChain/consensus/Raft.md
-   ../Note/BlockChain/consensus/PBFT.md
-   ../Note/BlockChain/consensus/POW.md
-   ../Note/BlockChain/consensus/raft-zh_cn.md
+   ../note/BlockChain/consensus/ACID原则与多阶段提交.md
+   ../note/BlockChain/consensus/FLP_and_CAP.md
+   ../note/BlockChain/consensus/Paxos.md
+   ../note/BlockChain/consensus/Raft.md
+   ../note/BlockChain/consensus/PBFT.md
+   ../note/BlockChain/consensus/POW.md
+   ../note/BlockChain/consensus/raft-zh_cn.md
    
 
 OverView
@@ -21,7 +21,7 @@ OverView
 .. toctree::
    :numbered:
 
-   ../Note/BlockChain/ETH/struct.md
+   ../note/BlockChain/ETH/struct.md
 
 
 Wallet
@@ -29,11 +29,11 @@ Wallet
 .. toctree::
    :numbered:
 
-   ../Note/BlockChain/Wallet/多重签名.md
-   ../Note/BlockChain/Wallet/加密、签名.md
-   ../Note/BlockChain/Wallet/钱包.md
-   ../Note/BlockChain/Wallet/账户模型.md
-   ../Note/BlockChain/Wallet/BIP39、BIP32、BIP44.md
+   ../note/BlockChain/Wallet/多重签名.md
+   ../note/BlockChain/Wallet/加密和签名.md
+   ../note/BlockChain/Wallet/钱包.md
+   ../note/BlockChain/Wallet/账户模型.md
+   ../note/BlockChain/Wallet/BIP39-BIP32-BIP44.md
 
 
 Cosmos
@@ -41,7 +41,7 @@ Cosmos
 .. toctree::
    :numbered:
 
-   ../Note/BlockChain/cosmos/tendermint.md
+   ../note/BlockChain/cosmos/tendermint.md
 
 
 Rust
@@ -49,5 +49,5 @@ Rust
 .. toctree::
    :numbered:
 
-   ../Note/BlockChain/rust/basic.md
-   ../Note/BlockChain/rust/ownership.md
+   ../note/BlockChain/rust/basic.md
+   ../note/BlockChain/rust/ownership.md

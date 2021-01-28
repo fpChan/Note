@@ -53,9 +53,9 @@
 
 ## 常用命令
 
-- [Linux 常用命令](常用命令/cmd.md)
-- [git 操作](常用命令/Git.md)
-- [ssh](常用命令/ssh.md)
+- [Linux 常用命令](脚本命令/cmd.md)
+- [git 操作](常用命令/git.md)
+- [ssh](脚本命令/ssh.md)
 
 
 

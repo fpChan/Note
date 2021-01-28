@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 
-project = 'fpchen Note'
+project = 'fpchen note'
 copyright = '2019, 方平'
 author = '方平'
 

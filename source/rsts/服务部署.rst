@@ -7,24 +7,25 @@ Docker
 .. toctree::
    :numbered:
 
-   ../Note/docker/docker.md
-   ../Note/docker/dockerfile.md
-   ../Note/docker/docker-compose.md
+   ../note/docker/docker.md
+   ../note/docker/docker-application.md
+   ../note/docker/dockerfile.md
+   ../note/docker/docker-compose.md
 
 Apllo
 =======
 .. toctree::
    :numbered:
 
-   ../Note/工程维护/Apllo/Apllo配置中心.md
+   ../note/工程维护/Apllo/Apllo配置中心.md
 
 Eureka
 =======
 .. toctree::
    :numbered:
 
-   ../Note/工程维护/Eureka/eureka.md
-   ../Note/工程维护/Eureka/Eureka服务提供与调用.md
+   ../note/工程维护/Eureka/eureka.md
+   ../note/工程维护/Eureka/Eureka服务提供与调用.md
 
 
 Log
@@ -32,11 +33,11 @@ Log
 .. toctree::
    :numbered:
 
-   ../Note/工程维护/Log/日志查看.md
+   ../note/工程维护/Log/日志查看.md
 
-Log
+开发踩坑
 =======
 .. toctree::
    :numbered:
 
-   ../Note/工程维护/开发踩坑/设计过程.md
+   ../note/工程维护/开发踩坑/设计过程.md
