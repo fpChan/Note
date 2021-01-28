@@ -9,7 +9,6 @@ Consensus
 
    ../note/BlockChain/consensus/ACID原则与多阶段提交.md
    ../note/BlockChain/consensus/FLP_and_CAP.md
-   ../note/BlockChain/consensus/Paxos.md
    ../note/BlockChain/consensus/Raft.md
    ../note/BlockChain/consensus/PBFT.md
    ../note/BlockChain/consensus/POW.md
