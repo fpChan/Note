@@ -1,5 +1,8 @@
 # BIP39、BIP44、BIP32 协议
-## 流程
+
+
+## HD 钱包导入流程
+
 <!-- <html>
 <img src="http://assets.processon.com/chart_image/5d3c0a25e4b0d11c8912ddd6.png"/>
 </html> -->
@@ -141,14 +144,9 @@ N((k, c)) → (K, c)
 
 
 
-
 <html>
 <img src="https://stevenocean.github.io/2018/09/23/generate-hd-wallet-by-bip39/generate-hd-wallet.jpg"/>
 </html>
-
-### 参考如下：
-[基于 BIP-32 和 BIP-39 规范生成 HD 钱包（分层确定性钱包）](https://stevenocean.github.io/2018/09/23/generate-hd-wallet-by-bip39.html)  
-[分层确定性钱包 HD Wallet 剖析：设计和实现](https://www.arcblock.io/zh/post/2018/12/01/hd-wallets-design-and-implementation)
 
 ## BIP44
 BIP32路径中的5个层次定义：
@@ -174,6 +172,12 @@ m / purpose' / coin_type' / account' / change / address_index
 
 一句话概括下BIP44就是：给BIP32的分层路径定义规范  
 
-参考如下：  
+
+
+## reference  
 [Ethereum HD Ｗallet（虚拟货币钱包）-BIP32、BIP39、BIP44](https://www.cnblogs.com/wanghui-garcia/p/9970735.html)  
 [理解开发HD 钱包涉及的BIP32、BIP44、BIP39](https://learnblockchain.cn/2018/09/28/hdwallet/)
+
+[基于 BIP-32 和 BIP-39 规范生成 HD 钱包（分层确定性钱包）](https://stevenocean.github.io/2018/09/23/generate-hd-wallet-by-bip39.html)  
+[分层确定性钱包 HD Wallet 剖析：设计和实现](https://www.arcblock.io/zh/post/2018/12/01/hd-wallets-design-and-implementation)
+
