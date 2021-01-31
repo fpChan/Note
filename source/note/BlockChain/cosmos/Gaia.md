@@ -1,4 +1,7 @@
-### Gaia是什么
+# cosmos gaia
+
+### Gaia 介绍
+
 `gaia`是作为Cosmos SDK应用程序的Cosmos Hub的名称。它有两个主要的入口：
 
 - `gaiad` : Gaia的服务进程，运行着`gaia`程序的全节点。
