@@ -1,7 +1,7 @@
 
 
 
-# SPV背景知识
+# ETH SPV
 
 ## 什么是SPV
 
