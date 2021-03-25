@@ -2,8 +2,4 @@
 
 ![](../../image/eth-overview.jpg)
 
-
-
-
-
-![](../../image/mpt2.png)
+![](../../image/MPT2.png)

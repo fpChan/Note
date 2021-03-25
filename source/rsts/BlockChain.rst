@@ -40,6 +40,7 @@ BTC
    :numbered:
 
    ../note/BlockChain/btc/btc-address-script.md
+   ../note/BlockChain/btc/btc-node.md
 
 
 

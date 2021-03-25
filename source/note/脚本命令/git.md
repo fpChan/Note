@@ -54,3 +54,31 @@ $ git merge test
 # 删除之前的分支 (已经没用了)
 $ git branch -d <branch-name>
 ```
+
+
+
+### git lfs 突破 大文件
+
+```shell
+git init
+
+git lfs install
+
+git lfs track "*.pdf"
+
+git lfs track "*.epub"
+
+cat .gitattributes
+
+git add .gitattributes
+
+git commit -m "track *.pdf *epub files using Git LFS"
+
+git add .
+
+git commit -m "first add books"
+
+git lfs ls-files
+
+```
+
