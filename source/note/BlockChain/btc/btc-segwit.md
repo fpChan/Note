@@ -167,7 +167,7 @@ Transaction Malleability 为什么会带来问题呢？我们以例子来说明�
 在交易中新增了一个数据结构： witness，下面展示新旧数据结构
 
 ```
-old: [nVersion] 								[input num] [tx inputs] [output num] [tx outputs] 				 [nLockTime]
+old: [nVersion] [input num] [tx inputs] [output num] [tx outputs] [nLockTime]
 
 new: [nVersion] [marker] [flag] [input num] [tx inputs] [output num] [tx outputs] [witness][nLockTime]
 ```
@@ -191,18 +191,18 @@ new: [nVersion] [marker] [flag] [input num] [tx inputs] [output num] [tx outputs
   - 解析具体字段
 
     ```
-    02000000 	       		// nVersion
-    01				       		// input number
+    02000000            // nVersion
+    01                  // input number
     c2290f6526caed6b203688fae51432c640bd8e2fcf50060b4f02348fae18c704 // 小端序的 previous tx hash
-    00000000        		// tx vin index
-    6b									//解锁脚本长度 10进制 107
+    00000000            // tx vin index
+    6b                  //解锁脚本长度 10进制 107
     483045022100b84617263695d31407d6ae230d3b629d071e65d936ee946c8adf84304163cb2d022045435bf766cfcf5a9e515e43969df06bc13c0e93d0787e0f80a7dcc3c236ac8c0121029ba616506337ff7f0ccaac35938af4ba614b9853d670c4a45d830d7d38de7823
     
-    ffffffff      		 	// sequence 通常为0xFFFFFFFF。除非事务的锁定时间> 0，否则不相关
-    02						 			// output num
+    ffffffff            // sequence 通常为0xFFFFFFFF。除非交易的锁定时间> 0，否则不相关
+    02                  // output num
     40420f00000000001976a9144fd5b5cbe9d25a7cbbef9847d1a6e97d8a07697588ac
     f695e605000000001976a914db9d0eb300a248a494f55ec1abb140d5d580216f88ac
-    00000000     			 // nLockTime 定义交易有效（或最小块高）的最早时间
+    00000000            // nLockTime 定义交易有效（或最小块高）的最早时间
     ```
 
     
@@ -224,24 +224,23 @@ new: [nVersion] [marker] [flag] [input num] [tx inputs] [output num] [tx outputs
   - 解析具体字段
 
     ```
-    02000000						// nVersion
-    00									// marker 必须是 0
-    01									// flag 必须是 1
+    02000000            // nVersion
+    00                  // marker 必须是 0
+    01                  // flag 必须是 1
     01
     97df15a97d9b194bd378da4d670f584e808bdb0ab3335197357eab302fbe20c3 // 小端序的 previous tx hash
-    00000000						// tx vin index
-    00									// 解锁脚本长度为0，因为在 witness 字段
-    ffffffff  					// sequence 通常为0xFFFFFFFF。除非事务的锁定时间> 0，否则不相关
-    02									// output num 
+    00000000            // tx vin index
+    00                  // 解锁脚本长度为0，因为在 witness 字段
+    ffffffff            // sequence 通常为0xFFFFFFFF。除非交易的锁定时间> 0，否则不相关
+    02                  // output num 
     40420f00000000001976a9144fd5b5cbe9d25a7cbbef9847d1a6e97d8a07697588ac
     ec95e60500000000160014db9d0eb300a248a494f55ec1abb140d5d580216f
-    
-    02			 						// txinwitness 有2部分
-    47       						//  txinwitness 签名部分的长度. 10进制 71
+    02                  // txinwitness 有2部分
+    47                  //  txinwitness 签名部分的长度. 10进制 71
     304402201e9df1d606a9fcbd159b62f1fd0675ba31092ef9d8faf8afa09b48c765d40c74022016f272575b03e22c1eea897d4fe7f88de345c03c3678ae09187141c0617042c701
-    21									//  txinwitness 公钥部分的长度. 10	进制 33
+    21                  //  txinwitness 公钥部分的长度. 10	进制 33
     029ba616506337ff7f0ccaac35938af4ba614b9853d670c4a45d830d7d38de7823
-    00000000  					// nLockTime 定义交易有效（或最小块高）的最早时间
+    00000000            // nLockTime 定义交易有效（或最小块高）的最早时间
     ```
 
 
