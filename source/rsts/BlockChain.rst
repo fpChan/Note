@@ -15,16 +15,6 @@ Consensus
    ../note/BlockChain/consensus/raft-zh_cn.md
    
 
-Wallet
-=======
-.. toctree::
-   :numbered:
-
-   ../note/BlockChain/wallet/加密和签名.md
-   ../note/BlockChain/wallet/钱包.md
-   ../note/BlockChain/wallet/BIP39-BIP32-BIP44.md
-
-
 ETH
 =======
 .. toctree::
@@ -41,7 +31,20 @@ BTC
 
    ../note/BlockChain/btc/btc-address-script.md
    ../note/BlockChain/btc/btc-node.md
+   ../note/BlockChain/btc/btc-standardtx.md
+   ../note/BlockChain/btc/btc-segwit.md
+   ../note/BlockChain/btc/btc-store-data.md
 
+
+
+Wallet
+=======
+.. toctree::
+   :numbered:
+
+   ../note/BlockChain/wallet/加密和签名.md
+   ../note/BlockChain/wallet/钱包.md
+   ../note/BlockChain/wallet/BIP39-BIP32-BIP44.md
 
 
 Cosmos

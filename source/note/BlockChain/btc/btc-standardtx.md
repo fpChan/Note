@@ -1,4 +1,4 @@
-## BTC 系列之标准-非标准交易
+## BTC 系列之标准与非标准交易
 
 ## 操作码
 
@@ -48,7 +48,7 @@
 
   只有当解锁脚本得到了咖啡馆的有效签名，交易执行结果才会被通过（结果为 true. 被push 到栈中）
 
-### 
+
 
 ### **P2PK (pay to public key)**
 
@@ -152,7 +152,7 @@
   OP_0 <PUBLIC KEY A HASH> 
   ```
 
-- 解锁脚本
+- 解锁脚本(witness 字段)
 
   ```
   <SIGNATURE S> <PUBLIC KEY A>
@@ -160,9 +160,9 @@
 
   
 
-
-
 ### **P2WSH(pay to witness script hash)**
+
+
 
 
 
@@ -270,168 +270,3 @@ P2H不能被视为*哈希时间锁定合同*（HTLC）。HTLC本质上是一种�
 
 **图12**。P2SH内部的OP_DROP **（左）**和OP_HASH160 OP_EQUALVERIFY事务的分布**（右）**。
 
-#### 4.2.3。OP_Hash160 OP_Equalverify
-
-我们发现了以OP_HASH160 OP_EQUALVERIFY开头的四种不同类型的事务。第一个具有此锁定脚本：“ OP_HASH 160 <HASH 160 OFSOMETHING> OP_EQUAL 1 ”或“ OP_HASH 160 <HASH 160 OFSOMETHING> OP_EQUAL 0 1”。它们可能是具有P2SH的事务，可以通过仅显示兑换脚本来对其进行解锁，实际上，这些脚本不需要任何解锁操作，因为最后它们将1推入堆栈。因此，交易始终得到验证。
-
-然后是一个P2PK，它以一系列OP_HASH160 OP_EQUALVERIFY开头，并带有锁定脚本：“ （OP_HASH 160 <HASH 160 OFSOMETHING> OP_EQUALVERIFY）* N <PUBLIC KEY A> OP_CHECKSIG ”[35](https://www.frontiersin.org/articles/10.3389/fbloc.2019.00007/full#note35)。要解锁脚本，需要知道所有哈希字符串以及与脚本中的公钥相对应的私钥。我们可以将此交易视为对特定人员（与脚本中的公共密钥相对应的私钥的所有者）的挑战：当他在脚本中找到哈希的所有字符串时，就可以拿走这笔钱。
-
-此脚本还有一个变体：“ （（OP_HASH 160 <HASH 160 OFSOMETHING> OP_EQUALVERIFY）* N <PUBLIC KEY A> OP_CHECKSIGVERIFY <DATA> OP_DROP OP_DEPTH 0 OP_EQUAL ”，因为新零件已检查，所以可以将其解锁堆栈中没有元素，并且只有在所有给定的字符串和签名正确的情况下才有可能。与上一个交易类似，此交易对特定的人来说是一个挑战，只有当他知道脚本中所有哈希值的字符串时，他才能拿钱，但是如我们所见，此外还有<DATA> OP_DROP序列在4.2.2节中，允许在区块链中存储一些数据，而不会使交易变得不可花费。
-
-最后一个仅用于OP_HASH160 OP_EQUALVERIFY，其标识脚本为“ （OP_HASH 160 <HASH 160 OFSOMETHING> OP_EQUALVERIFY ** N OP_HASH 160 <HASH 160 OFSOMETHING> OP_EQUAL”。要解锁它，我们需要知道所有哈希字符串。这笔交易也可能是一个挑战：找到所有哈希值字符串的第一个用户可以拿走这笔钱。
-
-在[图12中，](https://www.frontiersin.org/articles/10.3389/fbloc.2019.00007/full#F12)我们显示OP_HASH160 OP_EQUALVERIFY事务的分布。OP_DEPTH是最常见的类，从区块链中提取了6 500多个事务。
-
-#### 4.2.4。OP_IF
-
-这些事务的特征是存在OP_IF。实际上，此运算符（如C或JAVA中的一样）会生成不同的执行分支，并且接收者可以选择自己喜欢的分支。
-
-我们发现了以OP_IF开头的七种不同的事务类，它们各自以下列脚本为特征：
-
-1.“ OP_IF
-
-OP_SIZE 32 OP_EQUALVERIFY OP_SHA 256
-
-<SHA 256 OFSOMETHING> OP_EQUALVERIFY OP_DUP
-
-OP_HASH 160 <公共密钥A哈希>
-
-OP_ELSE
-
-<DATA> OP_CHECKLOCKTIMEVEIRFY OP_DROP
-
-OP_DUP OP_HASH 160 <公共密钥B哈希>
-
-OP_ENDIF
-
-OP_EQUAL OP_CHECKSIG ”。
-
-可以通过两种方式来解锁该事务：第一种是具有从SHA256哈希获得的32字节字符串和A的签名；第二种是具有A的签名。第二个，在脚本中的日期之后，仅带有B的签名。我们可以看到此事务就像A和B（与脚本中的公钥A和B对应的私钥的所有者）之间的质询一样：如果A在脚本中的日期之前找到了32字节的字符串，则可以提取该笔款项，否则B将提取这些比特币。
-
-2.还有另一种类型等于最后一种，但没有大小检查：
-
-“ OP_IF
-
-OP_SHA 256 <SHA 256 OFSOMETHING> OP_EQUALVERIFY
-
-OP_DUP
-
-OP_HASH 160 <公共密钥A哈希>
-
-OP_ELSE
-
-<DATA> OP_CHECKLOCKTIMEVEIRFY OP_DROP
-
-OP_DUP OP_HASH 160 <公共密钥B哈希>
-
-OP_ENDIF
-
-OP_EQUAL OP_CHECKSIG ”。
-
-此事务与上一个事务一样面临相同的挑战，但是字符串的长度不是固定的，因此A必须在脚本中的日期之前找到字符串，否则B会拿走这笔钱。
-
-3.我们还找到了一个分支反转并且使用Hash160而不是SHA256的版本：
-
-“ OP_IF
-
-<DATA> OP_CHECKLOCKTIMEVEIRFY OP_DROP
-
-<公钥A> OP_CHECKSIG
-
-OP_ELSE
-
-OP_HASH 160 <HASH 160 OFSOMETHING> OP_EQUALVERIFY
-
-<公钥B> OP_CHECKSIG
-
-OP_ENDIF ”。
-
-这与第二个相同，但是分支颠倒了，即，现在B必须找到字符串，否则A将拿走钱。
-
-4.另外一个需要15个原始字符串的变体是：
-
-“ OP_IF
-
-（OP_RIPEMD 160 <RIPEMD 160 OFSOMETHING>
-
-OP_EQUALVERIFY）* 15 <PUBLIC KEY A> OP_CHECKSIG
-
-OP_ELSE
-
-<DATA> OP_CHECKLOCKTIMEVEIRFY OP_DROP
-
-<公钥B> OP_CHECKSIG
-
-OP_ENDIF ”。
-
-同样，也可以将此交易视为与第二次交易非常相似的挑战，但是A必须在脚本中的日期之前找到15个哈希散列，否则B会取走这笔钱。
-
-5.一个可以立即使用两个签名的类，或者在脚本中的日期之后仅使用一个签名的类：
-
-“ OP_IF
-
-<公钥A> OP_CHECKSIGVERIFY
-
-OP_ELSE
-
-<DATA> OP_CHECKLOCKTIMEVERIFY OP_DROP
-
-OP_ENDIF
-
-<PUBLIC KEY B> OP_CHECKSIG ”。
-
-这可以考虑为两个彼此不信任的人（A和B）之间的交易，实际上，如果一切安好，并且A没有消失，他们可以使用比特币，否则在脚本B中的日期之后可以拿比特币。
-
-6.具有2-2个多重签名和CLVT的类：
-
-“ OP_IF
-
-2 <公用密钥A> <公用密钥B> 2
-
-OP_CHECKMULTISIG
-
-OP_ELSE
-
-<DATA> OP_CHECKLOCKTIMEVEIRFY OP_DROP
-
-<公钥A> OP_CHECKSIG
-
-OP_ENDIF ”。
-
-可以认为此事务与上一个事务完全一样，实际上序列2 <PUBLIC KEY A> <PUBLIC KEY B> 2 OP_CHECKMULTISIG与<PUBLIC KEY A> OP_CHECKSIGVERIFY <PUBLIC KEY B> OP_CHECKSIG相同。
-
-7.最后一个类由不需要解锁的事务表示：最后，脚本将1压入堆栈。例如，脚本是
-
-“ OP_IF
-
-<DATA> 15 <PUBLIC KEY A> OP_CHECKMULTISIG
-
-OP_ENDIF
-
-1 ”。
-
-他们可能是准备具有P2SH的交易，可以通过仅显示兑换脚本来解锁，以使解锁更加容易。
-
-我们可以看到在[图13中](https://www.frontiersin.org/articles/10.3389/fbloc.2019.00007/full#F13)，最常用的交易是OP_IF 1，有超过70分000的结果。
-
-图13
-
-[![www.frontiersin.org](https://www.frontiersin.org/files/Articles/460412/fbloc-02-00007-HTML/image_t/fbloc-02-00007-g013.gif)](https://www.frontiersin.org/files/Articles/460412/fbloc-02-00007-HTML/image_m/fbloc-02-00007-g013.jpg)
-
-**图13**。P2SH内部的OP_IF（左）和非标准事务的分布（右）。
-
-#### 4.2.5。OP_RIGHT
-
-这种类型的事务具有仅包含“ OP_RIGHT ”的脚本。这个运算符[36](https://www.frontiersin.org/articles/10.3389/fbloc.2019.00007/full#note36)取一个字符串和一个位置，它仅将右边的字符推入字符串中的该位置。要解锁此脚本，以OP_RIGHT的结果不同于0的方式组合一个带有数字和字符串的解锁脚本就足够了。像前面几节中的OP_HASH 1或OP_IF 1一样，可以使用此事务。制作只能通过显示兑换脚本来解锁的P2SH。
-
-#### 4.2.6。OP_2DUP多重签名
-
-这些事务类似于多重签名事务，但是有一些明显的区别：“ OP_2DUP OP_EQUAL OP_NOT OP_VERIFY 2 <PUBLIC KEY A> OP_DUP 2 OP_CHECKMULTISIG。” 要解锁此脚本，需要使用来自同一私钥的两个签名。原因是第一个运算符OP_2DUP复制了两个签名，然后OP_EQUAL检查它们是否相同；但是，它们是不同的，然后它将0推入堆栈。现在，OP_NOT将1更改为0，并且OP_VERIFY从堆栈中删除1。最后，所提出的方案对应于普通的多重签名。
-
-此事务对接收者来说非常危险，实际上，它需要来自同一私钥的两个签名。这使私钥面临从公钥中恢复的风险，即任何人都可以拥有此私钥的风险[37](https://www.frontiersin.org/articles/10.3389/fbloc.2019.00007/full#note37)。
-
-#### 4.2.7。P2PK OP_DROP OP_DEPTH
-
-该事务看起来像P2PK，但是在脚本的末尾它检查堆栈是否为空，这是脚本：“ <PUBLIC KEY A> OP_CHECKSIGVERIFY <DATA> OP_DROP OP OP_DEPTH 0 OP_EQUAL。” 因此，要解锁此脚本，仅需要由A的私钥生成的签名。与OP_DROP（请参阅第4.2.2节）类似，此事务允许在区块链中存储一些数据，而不会使事务不可花费。
-
-在[图13中，](https://www.frontiersin.org/articles/10.3389/fbloc.2019.00007/full#F13)我们显示了P2SH事务中非标准事务的分布。最常用的是OP_IF类，具有近80 000个输出。第二个事件发生了将近25000次，是OP_DROP事务。
