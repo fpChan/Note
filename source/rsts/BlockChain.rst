@@ -29,8 +29,8 @@ BTC
 .. toctree::
    :numbered:
 
-   ../note/BlockChain/btc/btc-address-script.md
    ../note/BlockChain/btc/btc-node.md
+   ../note/BlockChain/btc/btc-address-script.md
    ../note/BlockChain/btc/btc-standardtx.md
    ../note/BlockChain/btc/btc-segwit.md
    ../note/BlockChain/btc/btc-store-data.md

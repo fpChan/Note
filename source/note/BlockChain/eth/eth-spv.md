@@ -1,6 +1,3 @@
-
-
-
 # ETH SPV
 
 ## 什么是SPV
@@ -23,7 +20,8 @@ B \equiv (B_{H}, B_{\mathbf{T}}, B_{\mathbf{U}})
 
 具体结构如下图
 
-![blockchain-structure](https://user-images.githubusercontent.com/29588923/96422250-5d68ae80-122a-11eb-9c3c-aeb2dfd18311.png)
+![blockchain-structure](../../image/eth/ethblock.png)
+
 
 ### Block Header
 
@@ -151,9 +149,9 @@ type Header struct {
       \epsilon \equiv \left\lfloor 2^{ \left\lfloor H'_{\mathrm{i}} \div 100000 \right\rfloor - 2 } \right\rfloor 
       \end{equation}" />
 
-<img src="http://latex.codecogs.com/svg.latex?\begin{equation}
-  H'_{\mathrm{i}} \equiv \max(H_{\mathrm{i}} - 3000000, 0)
-  \end{equation}" />
+    <img src="http://latex.codecogs.com/svg.latex?\begin{equation}
+      H'_{\mathrm{i}} \equiv \max(H_{\mathrm{i}} - 3000000, 0)
+      \end{equation}" />
 
 
 
