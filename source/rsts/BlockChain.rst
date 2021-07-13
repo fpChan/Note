@@ -13,6 +13,7 @@ Consensus
    ../note/BlockChain/consensus/PBFT.md
    ../note/BlockChain/consensus/POW.md
    ../note/BlockChain/consensus/raft-zh_cn.md
+   ../note/BlockChain/eth/pow.md
    
 
 ETH
@@ -22,6 +23,8 @@ ETH
 
    ../note/BlockChain/eth/struct.md
    ../note/BlockChain/eth/eth-spv.md
+   ../note/BlockChain/eth/solidity-basic.md
+   ../note/BlockChain/eth/solidity-evm.md
 
 
 BTC
@@ -35,7 +38,13 @@ BTC
    ../note/BlockChain/btc/btc-segwit.md
    ../note/BlockChain/btc/btc-store-data.md
 
+Crypto
+=======
+.. toctree::
+   :numbered:
 
+   ../note/BlockChain/crypto/merkle.md
+   ../note/BlockChain/crypto/signature.md
 
 Wallet
 =======

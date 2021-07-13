@@ -6,6 +6,23 @@
 
 
 
+### ETH Hash 算法
+
+- DAG  分层级的有向无环图 ，每3万个块生成一次，
+
+  - 每个 epoch 的seed 是存在依赖的，
+
+    ```
+    Seed Hash[0] = Kec(32 byte 0)
+    Seed Hash[i] = Kec(32 byte i-1)
+    ```
+
+  - Seed 生成 cache， 初始值是 16MB，每个 epoch 增长 128K B， 每个 cache 的单位是 64B
+
+  - cache 生成 Data，初始值 是 1GB，每个 epoch 增长 8M。
+
+
+
 ## ETH 数据结构
 
 ###  Block

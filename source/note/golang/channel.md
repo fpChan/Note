@@ -35,12 +35,17 @@ type hchan struct {
 
 ### 2 、基本操作
 
-```go
-ch := make(chan int, 1)
-ch <- 1
-<-ch
-close(ch)
-```
+channel存在3种状态
+
+- `nil`，未初始化的状态，只进行了声明，或者手动赋值为`nil`
+- `active`，正常的channel，可读或者可写
+- `closed`，已关闭的channel。 关闭的channel存储的是类型零值。
+
+| 操作  | nil通道 | closed 关闭的通道 | active正常通道 |
+| ----- | ------- | ----------------- | -------------- |
+| close | panic   | panic             | 成功           |
+| ch<-  | 死锁    | panic             | 阻塞或成功     |
+| <-ch  | 死锁    | 零值              | 阻塞或成功     |
 
 
 

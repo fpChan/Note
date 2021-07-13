@@ -130,6 +130,12 @@ OP_DUP OP_HASH160 <Cafe Public Key Hash> OP_EQUALVERIFY OP_CHECKSIG
 
 
 
+## 地址
+
+以公钥 K 为输入，计算其SHA256哈希值，并以此结果计算RIPEMD160 哈希值，得到一个长度为160位(20字 节)的数字: A = RIPEMD160(SHA256(K))
+
+公式中，K是公钥，A是生成的比特币地址。
+
 ## 脚本类型
 
 - 不同的锁定脚本依赖的源数据生成。对应关系如下

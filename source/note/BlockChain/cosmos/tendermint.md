@@ -99,3 +99,9 @@ ABCI接口可以分为三类：信息查询、交易校验以及共识相关处�
 1. CheckTx消息用于验证交易。Tendermint Core中的mempool通过此消息校验交易的合法性，通过之后才会将交易广播给其它节点。
 2. DeliverTx消息是应用的主要工作流程，通过此消息真正执行交易，包括验证交易、更新应用程序的状态。
 3. Commit消息通知应用程序计算当前的世界状态，并存在下一区块头中。
+
+
+
+## Reference
+
+- [深度剖析区块链跨链技术Cosmos(上篇)](https://mp.weixin.qq.com/s?__biz=MzUyMjg0MzIxMA==&mid=2247483679&idx=1&sn=1fadfa95a266e199c3f2966c2decfbae&chksm=f9c4e43aceb36d2c19f07450f98a2938ef345aeb454f0f668057e66a89adb0dfda91910cccd9&scene=21#wechat_redirect)
