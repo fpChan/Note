@@ -13,7 +13,7 @@ Consensus
    ../note/BlockChain/consensus/PBFT.md
    ../note/BlockChain/consensus/POW.md
    ../note/BlockChain/consensus/raft-zh_cn.md
-   ../note/BlockChain/eth/pow.md
+   ../note/BlockChain/consensus/pow-impl.md
    
 
 ETH
