@@ -1,4 +1,4 @@
-## 转载[PoW挖矿算法原理及其在比特币、以太坊中的实现](https://www.lastupdate.net/18355.html)
+# 转载[PoW挖矿算法原理及其在比特币、以太坊中的实现](https://www.lastupdate.net/18355.html)
 
 PoW，全称Proof of Work，即工作量证明，又称挖矿。大部分公有链或虚拟货币，如比特币、以太坊，均基于PoW算法，来实现其共识机制。即根据挖矿贡献的有效工作，来决定货币的分配。
 
